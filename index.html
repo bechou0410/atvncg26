@@ -97,14 +97,14 @@
   <span class="wm">ATVNCG2026</span>
   <div class="board-title"><span class="plaque"><i><span class="t">8 Nhà Công Diễn</span></i></span></div>
   <div class="tray">
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-my-nam.jpg" alt=""><b>Nhà Mỹ Nam</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-cui-lua.jpg" alt=""><b>Nhà Củi Lửa</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-soan-nhac.jpg" alt=""><b>Nhà Soạn Nhạc</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-ngoai-o.jpg" alt=""><b>Nhà Ngoại Ô</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-vinh-quy-bai-to.jpg" alt=""><b>Nhà Vinh Quy Bái Tổ</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-lam-manh.jpg" alt=""><b>Nhà Làm Mạnh</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-dien-anh.jpg" alt=""><b>Nhà Điện Ảnh</b></a>
-    <a class="chip" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-hoa-lua.jpg" alt=""><b>Nhà Hoa Lửa</b></a>
+    <a class="chip" data-house="my-nam" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-my-nam.jpg" alt=""><b>Nhà Mỹ Nam</b></a>
+    <a class="chip" data-house="cui-lua" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-cui-lua.jpg" alt=""><b>Nhà Củi Lửa</b></a>
+    <a class="chip" data-house="soan-nhac" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-soan-nhac.jpg" alt=""><b>Nhà Soạn Nhạc</b></a>
+    <a class="chip" data-house="ngoai-o" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-ngoai-o.jpg" alt=""><b>Nhà Ngoại Ô</b></a>
+    <a class="chip" data-house="vinh-quy-bai-to" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-vinh-quy-bai-to.jpg" alt=""><b>Nhà Vinh Quy Bái Tổ</b></a>
+    <a class="chip" data-house="lam-manh" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-lam-manh.jpg" alt=""><b>Nhà Làm Mạnh</b></a>
+    <a class="chip" data-house="dien-anh" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-dien-anh.jpg" alt=""><b>Nhà Điện Ảnh</b></a>
+    <a class="chip" data-house="hoa-lua" href="cong-dien-1.html#bracket"><img src="assets/houses/nha-hoa-lua.jpg" alt=""><b>Nhà Hoa Lửa</b></a>
   </div>
   <p class="tray-hint rv">Chạm vào một nhà để mở bảng đấu Công diễn 1</p>
 </section>
@@ -132,7 +132,7 @@ const rows=[];
 Object.entries(ROSTER).forEach(([hid,ms])=>{
   ms.forEach(([mid,name,def,lead])=>{
     const v=memberScore(mid,def);
-    rows.push({name,lead,house:HOUSES[hid].replace('Nhà ',''),score:v});
+    rows.push({name,lead,hid,house:HOUSES[hid].replace('Nhà ',''),score:v});
   });
 });
 rows.sort((a,b)=>(b.score??-1)-(a.score??-1));
@@ -140,7 +140,7 @@ document.getElementById('rankGrid').innerHTML=rows.map((r,i)=>`
   <div class="rank-row${i<5?' top5':''}">
     <span class="sr-rank">${i+1}</span>
     <span class="r-name">${r.name}${r.lead?'<i> ★</i>':''}</span>
-    <span class="r-house">${r.house}</span>
+    <span class="r-house">${houseBadge(r.hid)}${r.house}</span>
     <span class="r-score">${r.score??'—'}</span>
   </div>`).join('');
 

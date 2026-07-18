@@ -689,3 +689,13 @@ footer p{font-size:12.5px;letter-spacing:.28em;text-indent:.28em;text-transform:
   .match-grid{grid-template-columns:1fr}
   .vs{padding:6px 0}
 }
+
+/* ===== house badges ===== */
+.badge{display:inline-block;width:1.3em;height:auto;vertical-align:-.32em;margin-right:.4em;
+  filter:drop-shadow(0 1px 2px #0009)}
+.chip b .badge{width:14px;vertical-align:-.22em;margin-right:.3em}
+.slot .name .badge{width:20px}
+.hcard-head .badge{width:18px;flex:0 0 auto;margin-right:0}
+.seed-row .badge{width:17px}
+.score-row .badge{width:16px}
+.rank-row .badge{width:15px;margin-right:.3em}

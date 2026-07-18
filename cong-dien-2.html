@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATVNCG 2026 — Công Diễn 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="stage"></div>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><img src="assets/atvncg-2026-emblem.png" alt=""><span>ATVNCG 2026</span></a>
+  <div class="nav-links">
+    <a href="index.html">Hành trình</a>
+    <a href="cong-dien-hoi-ngo.html">Hội ngộ</a>
+    <a href="cong-dien-1.html">Công diễn 1</a>
+    <a href="cong-dien-2.html" class="on">CD2</a>
+    <a href="cong-dien-3.html">CD3</a>
+    <a href="cong-dien-4.html">CD4</a>
+    <a href="cong-dien-5.html">CD5</a>
+    <a href="chung-ket.html">Chung kết</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <span class="wm">ATVNCG2026</span>
+  <div class="hero-kicker rv"><span class="tag">Vòng 2</span></div>
+  <h1 class="rv d1">Công Diễn 2</h1>
+  <div class="hero-rule rv d2"></div>
+</header>
+
+<main class="wrap">
+<section class="board rv">
+  <span class="wm">ATVNCG2026</span>
+  <div class="soon">
+    <img src="assets/atvncg-2026-emblem.png" alt="">
+    <p>Chưa phát sóng — chủ đề, đội hình và luật chơi <em>sẽ cập nhật ngay khi công bố</em>.<br>
+    Theo dõi lịch phát sóng VTV3 · 20:00 thứ bảy hằng tuần.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <img class="foot-emblem" src="assets/atvncg-2026-emblem.png" alt="">
+  <span class="wm">ATVNCG2026</span>
+  <p>Anh trai vượt ngàn chông gai 2026 · Công Diễn 2</p>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

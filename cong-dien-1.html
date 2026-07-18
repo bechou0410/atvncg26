@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATVNCG 2026 — Công Diễn 1 · Thể Lệ Bảng Đấu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="stage"></div>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><img src="assets/atvncg-2026-emblem.png" alt=""><span>ATVNCG 2026</span></a>
+  <div class="nav-links">
+    <a href="index.html">Hành trình</a>
+    <a href="cong-dien-hoi-ngo.html">Hội ngộ</a>
+    <a href="cong-dien-1.html" class="on">Công diễn 1</a>
+    <a href="cong-dien-2.html">CD2</a>
+    <a href="cong-dien-3.html">CD3</a>
+    <a href="cong-dien-4.html">CD4</a>
+    <a href="cong-dien-5.html">CD5</a>
+    <a href="chung-ket.html">Chung kết</a>
+  </div>
+</nav>
+
+
+
+<!-- shared svg defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="pgrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffdfae"/>
+      <stop offset=".45" stop-color="#f08a2e"/>
+      <stop offset="1" stop-color="#a33d12"/>
+    </linearGradient>
+    <linearGradient id="pgrad-dim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8b985"/>
+      <stop offset="1" stop-color="#8a3c14"/>
+    </linearGradient>
+    <linearGradient id="steelg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8e5df"/>
+      <stop offset=".5" stop-color="#9b968e"/>
+      <stop offset="1" stop-color="#c4c0b9"/>
+    </linearGradient>
+    <symbol id="person" viewBox="0 0 24 24">
+      <circle cx="12" cy="6.9" r="4.3"/>
+      <path d="M2.6 22.4c0-5.3 4.2-8.7 9.4-8.7s9.4 3.4 9.4 8.7z"/>
+    </symbol>
+    <symbol id="shield" viewBox="0 0 100 118">
+      <path d="M50 4 88 16v38c0 26-16 46-38 60C28 100 12 80 12 54V16Z" fill="url(#steelg)" stroke="#6f6b64" stroke-width="2"/>
+      <path d="M50 16 76 25v27c0 19-11 33-26 44-15-11-26-25-26-44V25Z" fill="none" stroke="#ffffff88" stroke-width="1.5"/>
+      <path d="M35 46 50 34l15 12-15 30Z" fill="#7c7871"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= HERO ================= -->
+<header class="hero wrap">
+  <span class="wm">ATVNCG2026</span>
+  <img class="hero-emblem rv" src="assets/atvncg-2026-emblem.png" alt="Huy hiệu Anh Trai Vượt Ngàn Chông Gai 2026">
+  <div class="hero-kicker rv"><span class="tag">Anh Trai Vượt Ngàn Chông Gai 2026</span></div>
+  <div class="rv d1"><span class="plaque"><i><span class="t">Công Diễn 1</span></i></span></div>
+  <h1 class="rv d1">Người Đàn Ông<br>Trên Lưng Ngựa</h1>
+  <h2 class="rv d2">Thể lệ bảng đấu</h2>
+  <div class="hero-meta rv d2">
+    <span class="tag">Phát sóng 18.07</span>
+    <span class="tag">02 bảng đấu · 08 nhà</span>
+  </div>
+  <div class="hero-rule rv d3"></div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= BRACKET ================= -->
+<section class="board rv" id="bracket">
+  <span class="wm">ATVNCG2026</span>
+  <div class="board-title"><span class="plaque"><i><span class="t">Luật Chia Bảng Đấu</span></i></span></div>
+
+  <div class="bracket">
+    <!-- BẠCH MÃ -->
+    <div class="panel light rv d1">
+      <div class="bg"></div>
+      <span class="stud l1"></span><span class="stud l2"></span><span class="stud r1"></span><span class="stud r2"></span>
+      <div class="panel-head"><span class="plaque"><i><span class="t">Bảng Đấu Bạch Mã</span></i></span></div>
+      <div class="slots" data-panel="bach">
+        <div class="slot"><span class="num">1</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ HIỆP SĨ" data-slot="bach-1"></span></div>
+        <div class="slot"><span class="num">2</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ KỴ SĨ" data-slot="bach-2"></span></div>
+        <div class="slot"><span class="num">3</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ KỴ SĨ" data-slot="bach-3"></span></div>
+        <div class="slot"><span class="num">4</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ KỴ SĨ" data-slot="bach-4"></span></div>
+      </div>
+      <div class="score-box" data-panel="bach">
+        <h4>So điểm hoả lực</h4>
+        <span class="sb-sub">nội bộ bảng · nhập sau công diễn</span>
+        <div class="score-row empty" data-slot="bach-1">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+        <div class="score-row empty" data-slot="bach-2">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+        <div class="score-row empty" data-slot="bach-3">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+        <div class="score-row empty" data-slot="bach-4">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+      </div>
+      <div class="panel-foot"><span class="tag">Biểu diễn trước</span></div>
+    </div>
+
+    <!-- HẮC MÃ -->
+    <div class="panel dark rv d2">
+      <div class="bg"></div>
+      <span class="stud l1"></span><span class="stud l2"></span><span class="stud r1"></span><span class="stud r2"></span>
+      <div class="panel-head"><span class="plaque"><i><span class="t">Bảng Đấu Hắc Mã</span></i></span></div>
+      <div class="slots" data-panel="hac">
+        <div class="slot"><span class="num">1</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ HIỆP SĨ" data-slot="hac-1"></span></div>
+        <div class="slot"><span class="num">2</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ KỴ SĨ" data-slot="hac-2"></span></div>
+        <div class="slot"><span class="num">3</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ KỴ SĨ" data-slot="hac-3"></span></div>
+        <div class="slot"><span class="num">4</span><div class="plate2"></div>
+          <span class="name" data-ph="NHÀ KỴ SĨ" data-slot="hac-4"></span></div>
+      </div>
+      <div class="score-box" data-panel="hac">
+        <h4>So điểm hoả lực</h4>
+        <span class="sb-sub">nội bộ bảng · nhập sau công diễn</span>
+        <div class="score-row empty" data-slot="hac-1">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+        <div class="score-row empty" data-slot="hac-2">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+        <div class="score-row empty" data-slot="hac-3">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+        <div class="score-row empty" data-slot="hac-4">
+          <span class="sr-rank">–</span>
+          <span class="sr-name">Chưa xếp nhà</span>
+          <input class="sr-score" type="number" inputmode="numeric" min="0" max="99999" placeholder="điểm" disabled>
+        </div>
+      </div>
+      <div class="panel-foot"><span class="tag">Biểu diễn sau</span></div>
+    </div>
+  </div>
+
+  <div class="tray rv d3" id="tray">
+    <button class="chip" data-house="my-nam"><img src="assets/houses/nha-my-nam.jpg" alt=""><b>Nhà Mỹ Nam</b></button>
+    <button class="chip" data-house="cui-lua"><img src="assets/houses/nha-cui-lua.jpg" alt=""><b>Nhà Củi Lửa</b></button>
+    <button class="chip" data-house="soan-nhac"><img src="assets/houses/nha-soan-nhac.jpg" alt=""><b>Nhà Soạn Nhạc</b></button>
+    <button class="chip" data-house="ngoai-o"><img src="assets/houses/nha-ngoai-o.jpg" alt=""><b>Nhà Ngoại Ô</b></button>
+    <button class="chip" data-house="vinh-quy-bai-to"><img src="assets/houses/nha-vinh-quy-bai-to.jpg" alt=""><b>Nhà Vinh Quy Bái Tổ</b></button>
+    <button class="chip" data-house="lam-manh"><img src="assets/houses/nha-lam-manh.jpg" alt=""><b>Nhà Làm Mạnh</b></button>
+    <button class="chip" data-house="dien-anh"><img src="assets/houses/nha-dien-anh.jpg" alt=""><b>Nhà Điện Ảnh</b></button>
+    <button class="chip" data-house="hoa-lua"><img src="assets/houses/nha-hoa-lua.jpg" alt=""><b>Nhà Hoa Lửa</b></button>
+  </div>
+  <p class="tray-hint rv d3">Chọn một nhà rồi chạm vào ô trong bảng để xếp — chạm ô đã xếp để gỡ. <em>Kết quả tự lưu.</em></p>
+  <p class="bracket-note rv d3"><b>Bạch Mã</b> biểu diễn trước · <b>Hắc Mã</b> biểu diễn sau</p>
+  <div class="bracket-tools rv d3"><button class="btn-reset" id="resetSlots" type="button">Đặt lại bảng đấu</button></div>
+</section>
+
+<!-- ================= BXH HOẢ LỰC CÁ NHÂN ================= -->
+<section class="board rv" id="bxh">
+  <span class="wm">ATVNCG2026</span>
+  <div class="board-title"><span class="plaque"><i><span class="t">Hoả Lực Cá Nhân</span></i></span></div>
+  <p class="bxh-sub">Nhập điểm hoả lực cá nhân hiện tại — <em>trung bình cộng của nhà tự cập nhật</em> và xếp hạng nhà bên dưới</p>
+  <div class="bxh-grid" id="bxhGrid"></div>
+  <div class="bxh-seed">
+    <h4>Xếp hạng nhà theo trung bình cộng</h4>
+    <div id="bxhSeed"></div>
+  </div>
+  <div class="bracket-tools rv"><button class="btn-reset" id="resetBxh" type="button">Đặt lại điểm cá nhân</button></div>
+</section>
+
+<!-- ================= STEP 1: PHÂN HẠNG ================= -->
+<section class="board rv">
+  <span class="step">Bước 01</span>
+  <span class="wm">ATVNCG2026</span>
+  <div class="board-title"><span class="plaque"><i><span class="t">Phân Hạng Hoả Lực</span></i></span></div>
+
+  <div class="rule-row rv d1">
+    <div class="houses">
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Hiệp Sĩ</span>
+      </div>
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Hiệp Sĩ</span>
+      </div>
+    </div>
+    <div class="chev"><b></b><b></b><b></b></div>
+    <p class="txt">Dựa vào <em>trung bình cộng điểm hoả lực cá nhân</em>, hai nhà có điểm cao nhất được mặc định là <em>02 nhà Hiệp Sĩ</em> — mỗi nhà thuộc về một bảng. Nhà Hiệp Sĩ có điểm hoả lực cao nhất được quyền <em>chọn 1 trong 2 bảng đấu</em>.</p>
+  </div>
+
+  <div class="rule-row rv d2">
+    <div class="houses">
+      <div class="house sm">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ</span>
+      </div>
+      <div class="house sm">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ</span>
+      </div>
+      <div class="house sm">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ</span>
+      </div>
+    </div>
+    <div class="chev"><b></b><b></b><b></b></div>
+    <p class="txt">06 nhà còn lại được gọi tên là <em>Kỵ Sĩ</em>, xếp theo điểm hoả lực với thứ tự từ <em>3 đến 8</em>.</p>
+  </div>
+</section>
+
+<!-- ================= STEP 2: CHỌN BẢNG ================= -->
+<section class="board rv">
+  <span class="step">Bước 02</span>
+  <span class="wm">ATVNCG2026</span>
+  <div class="board-title"><span class="plaque"><i><span class="t">Luật Chọn Bảng Đấu</span></i></span></div>
+
+  <div class="duel">
+    <div class="duel-col rv d1">
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ 6 · 7 · 8</span>
+      </div>
+      <div class="chev down"><b></b><b></b><b></b></div>
+      <div class="duel-verdict">Chọn trước</div>
+      <p class="duel-sub">Ba nhà Kỵ Sĩ thứ tự 6 · 7 · 8<br>lựa chọn vị trí bảng đấu trước</p>
+    </div>
+    <div class="duel-col rv d2">
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ 3 · 4 · 5</span>
+      </div>
+      <div class="chev down"><b></b><b></b><b></b></div>
+      <div class="duel-verdict">Chọn sau</div>
+      <p class="duel-sub">Ba nhà Kỵ Sĩ thứ tự 3 · 4 · 5<br>lựa chọn vị trí bảng đấu sau</p>
+    </div>
+  </div>
+
+  <p class="kick-note rv d3">Các nhà <em>3 · 4 · 5</em> được quyền <em>ĐÁ</em> các nhà <em>6 · 7 · 8</em> ra khỏi vị trí đã lựa chọn</p>
+</section>
+
+<!-- ================= STEP 3: LUẬT CHIẾN ================= -->
+<section class="board rv">
+  <span class="step">Bước 03</span>
+  <span class="wm">ATVNCG2026</span>
+  <div class="board-title"><span class="plaque"><i><span class="t">Luật Chiến</span></i></span></div>
+
+  <div class="rule-row rv d1">
+    <div class="houses">
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ</span>
+      </div>
+    </div>
+    <div class="chev"><b></b><b></b><b></b></div>
+    <p class="txt">Ở mỗi lượt lựa chọn, nhà nào muốn <em>tham gia tác chiến</em> có thể <em>giơ bảng CHIẾN</em>.</p>
+  </div>
+
+  <div class="rule-row rv d2">
+    <div class="houses">
+      <div class="house sm">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ</span>
+      </div>
+      <div class="house sm">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad-dim)"/></svg><svg><use href="#person" fill="url(#pgrad-dim)"/></svg>
+        </div>
+        <span class="plate">Nhà Kỵ Sĩ</span>
+      </div>
+    </div>
+    <div class="chev"><b></b><b></b><b></b></div>
+    <p class="txt">Nhiều hơn một nhà cùng muốn đến một vị trí — vị trí đó <em>ưu tiên thuộc về nhà có điểm hoả lực cao hơn</em>.</p>
+  </div>
+
+  <div class="rule-row to-card rv d3">
+    <p class="txt">Lá bài quyết định<br><em>tham chiến trực diện</em></p>
+    <div class="chev"><b></b><b></b><b></b></div>
+    <div class="houses">
+      <div class="card chien">
+        <div class="face"></div><div class="frame"></div><span class="glowline"></span>
+        <span class="word">Chiến</span>
+        <span class="sig"><img src="assets/atvncg-2026-emblem.png" alt=""></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STEP 4: LUẬT TRÁNH ================= -->
+<section class="board rv">
+  <span class="step">Bước 04</span>
+  <span class="wm">ATVNCG2026</span>
+  <div class="board-title"><span class="plaque"><i><span class="t">Luật Tránh</span></i></span></div>
+
+  <div class="rule-row from-pair rv d1">
+    <div class="houses stack">
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Hiệp Sĩ</span>
+      </div>
+      <div class="house">
+        <div class="crew">
+          <svg><use href="#person" fill="url(#pgrad)"/></svg><svg><use href="#person" fill="url(#pgrad)"/></svg>
+          <svg><use href="#person" fill="url(#pgrad)"/></svg>
+        </div>
+        <span class="plate">Nhà Hiệp Sĩ</span>
+      </div>
+    </div>
+    <p class="txt">Hai nhà Hiệp Sĩ sẽ ngồi sẵn tại <em>phòng riêng</em> và <em>có duy nhất 1 lần</em> được sử dụng quyền <em>TRÁNH</em>.</p>
+    <div class="houses">
+      <div class="card tranh">
+        <div class="face"></div>
+        <span class="shield"><svg viewBox="0 0 100 118"><use href="#shield"/></svg></span>
+        <div class="frame"></div>
+        <span class="word">Tránh</span>
+        <span class="sig"><img src="assets/atvncg-2026-emblem.png" alt=""></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <img class="foot-emblem" src="assets/atvncg-2026-emblem.png" alt="">
+  <span class="wm">ATVNCG2026</span>
+  <p>Công diễn 1 · Người đàn ông trên lưng ngựa · 18.07.2026</p>
+</footer>
+
+<script src="assets/data.js"></script>
+<script>
+// scroll reveal
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// bracket assignment — pick a house chip, tap a slot; persists to localStorage
+const KEY='atvncg26-cd1-bracket-v2';
+const slots=[...document.querySelectorAll('.slot .name')];
+const chips=[...document.querySelectorAll('#tray .chip')];
+let picked=null;
+let assign={};
+try{assign=JSON.parse(localStorage.getItem(KEY))||{}}catch{}
+
+const SKEY='atvncg26-cd1-scores';
+let scores={};
+try{scores=JSON.parse(localStorage.getItem(SKEY))||{}}catch{}
+const scoreRows=[...document.querySelectorAll('.score-row')];
+
+function renderRanks(){
+  // rank assigned+scored houses within each panel, highest hoa luc first
+  ['bach','hac'].forEach(pid=>{
+    const rows=scoreRows.filter(r=>r.dataset.slot.startsWith(pid));
+    const scored=rows
+      .map(r=>({r,h:assign[r.dataset.slot]}))
+      .filter(x=>x.h && scores[x.h]!==undefined && scores[x.h]!=='')
+      .sort((a,b)=>Number(scores[b.h])-Number(scores[a.h]));
+    rows.forEach(r=>{r.querySelector('.sr-rank').textContent='–';r.classList.remove('lead')});
+    scored.forEach((x,i)=>{
+      x.r.querySelector('.sr-rank').textContent=i+1;
+      x.r.classList.toggle('lead',i===0);
+    });
+  });
+}
+function render(){
+  const used=new Set(Object.values(assign));
+  slots.forEach(n=>{
+    const h=assign[n.dataset.slot];
+    n.textContent=h?HOUSES[h]:'';
+    n.classList.toggle('filled',!!h);
+  });
+  chips.forEach(c=>{
+    c.classList.toggle('used',used.has(c.dataset.house));
+    c.classList.toggle('sel',picked===c.dataset.house);
+  });
+  document.querySelectorAll('.slot').forEach(sl=>{
+    sl.classList.toggle('target',!!picked && !assign[sl.querySelector('.name').dataset.slot]);
+  });
+  scoreRows.forEach(r=>{
+    const h=assign[r.dataset.slot];
+    const inp=r.querySelector('.sr-score');
+    r.classList.toggle('empty',!h);
+    r.querySelector('.sr-name').textContent=h?HOUSES[h]:'Chưa xếp nhà';
+    inp.disabled=!h;
+    inp.value=h && scores[h]!==undefined?scores[h]:'';
+  });
+  renderRanks();
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(assign))}
+function saveScores(){localStorage.setItem(SKEY,JSON.stringify(scores))}
+
+scoreRows.forEach(r=>{
+  r.querySelector('.sr-score').addEventListener('input',e=>{
+    const h=assign[r.dataset.slot];
+    if(!h)return;
+    const v=e.target.value.trim();
+    if(v==='')delete scores[h];else scores[h]=Number(v);
+    saveScores();renderRanks(); // ranks only — don't rewrite inputs mid-typing
+  });
+});
+
+chips.forEach(c=>c.addEventListener('click',()=>{
+  picked=(picked===c.dataset.house)?null:c.dataset.house;
+  render();
+}));
+slots.forEach(n=>n.closest('.slot').addEventListener('click',()=>{
+  const id=n.dataset.slot;
+  if(picked){assign[id]=picked;picked=null;save();render();}
+  else if(assign[id]){delete assign[id];save();render();}
+}));
+document.getElementById('resetSlots').addEventListener('click',()=>{
+  assign={};scores={};picked=null;
+  localStorage.removeItem(KEY);localStorage.removeItem(SKEY);
+  render();
+});
+render();
+
+
+const bxhGrid=document.getElementById('bxhGrid');
+const bxhSeed=document.getElementById('bxhSeed');
+
+function buildBxh(){
+  bxhGrid.innerHTML=Object.entries(ROSTER).map(([hid,ms])=>`
+    <div class="hcard" data-house="${hid}">
+      <div class="hcard-head">
+        <b>${HOUSES[hid]}</b>
+        <span class="hcard-avg"><small>TB</small><span class="avg-val">—</span></span>
+      </div>
+      ${ms.map(([mid,name,def,lead])=>`
+        <div class="mrow">
+          <span class="mname">${name}${lead?'<i>★</i>':''}</span>
+          <input class="mscore" data-mid="${mid}" data-def="${def??''}" type="number" inputmode="numeric" min="0" max="9999" placeholder="điểm">
+        </div>`).join('')}
+    </div>`).join('');
+  bxhGrid.querySelectorAll('.mscore').forEach(inp=>{
+    const def=inp.dataset.def===''?null:Number(inp.dataset.def);
+    const v=memberScore(inp.dataset.mid,def);
+    if(v!==null&&v!==undefined)inp.value=v;
+    inp.addEventListener('input',()=>{
+      const t=inp.value.trim();
+      if(t==='')delete indiv[inp.dataset.mid];else indiv[inp.dataset.mid]=Number(t);
+      localStorage.setItem(IKEY,JSON.stringify(indiv));
+      updateBxh();
+    });
+  });
+  updateBxh();
+}
+function houseAvg(hid){
+  const vals=ROSTER[hid]
+    .map(([mid,,def])=>memberScore(mid,def))
+    .filter(v=>v!==null&&v!==undefined&&v!=='');
+  if(!vals.length)return null;
+  return vals.reduce((a,b)=>a+Number(b),0)/vals.length;
+}
+function updateBxh(){
+  const avgs=Object.keys(ROSTER).map(hid=>({hid,avg:houseAvg(hid)}));
+  avgs.forEach(({hid,avg})=>{
+    bxhGrid.querySelector(`[data-house="${hid}"] .avg-val`).textContent=
+      avg===null?'—':(Math.round(avg*10)/10).toLocaleString('vi-VN');
+  });
+  const ranked=[...avgs].sort((a,b)=>(b.avg??-1)-(a.avg??-1));
+  bxhSeed.innerHTML=ranked.map(({hid,avg},i)=>{
+    const na=avg===null;
+    const knight=!na&&i<2;
+    const role=na?'—':(knight?'Hiệp Sĩ':`Kỵ Sĩ · thứ ${i+1}`);
+    return `<div class="seed-row${knight?' knight':''}${na?' na':''}">
+      <span class="sr-rank">${na?'–':i+1}</span>
+      <span class="seed-name">${HOUSES[hid]}</span>
+      <span class="seed-avg">${na?'—':(Math.round(avg*10)/10).toLocaleString('vi-VN')}</span>
+      <span class="seed-role">${role}</span>
+    </div>`;
+  }).join('');
+}
+buildBxh();
+document.getElementById('resetBxh').addEventListener('click',()=>{
+  indiv={};localStorage.removeItem(IKEY);buildBxh();
+});
+
+</script>
+</body>
+</html>

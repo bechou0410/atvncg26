@@ -57,6 +57,57 @@ const ROSTER={
     ['thom-dalab','Thơm (Da LAB)',280,0]
   ]
 };
+// ===== công diễn schedule: single source of truth, auto-updating =====
+// Each show: id (page slug without .html), round label, name, theme/sub line,
+// air date (YYYY-MM-DD, latest airing), optional forced status. Status is
+// otherwise derived from today's date so the timeline updates itself as
+// công diễn air — no HTML edits needed. Editing SHOWS here (or the remote
+// assets/shows.json override) is the only place new data has to land.
+const SHOWS=[
+  {id:'cong-dien-hoi-ngo',round:'Vòng mở màn',name:'Công Diễn Hội Ngộ',
+   sub:'Ngày nảy, ngày nay · Tập 1–2 · 27.06 & 04.07',date:'2026-07-04'},
+  {id:'cong-dien-1',round:'Vòng 1',name:'Người Đàn Ông Trên Lưng Ngựa',
+   sub:'Công diễn 1 · Từ tập 3 · 18.07',date:'2026-07-18'},
+  {id:'cong-dien-2',round:'Vòng 2',name:'Công Diễn 2',
+   sub:'Chủ đề sắp công bố',date:'2026-07-25'},
+  {id:'cong-dien-3',round:'Vòng 3',name:'Công Diễn 3',
+   sub:'Chủ đề sắp công bố',date:'2026-08-01'},
+  {id:'cong-dien-4',round:'Vòng 4',name:'Công Diễn 4',
+   sub:'Chủ đề sắp công bố',date:'2026-08-08'},
+  {id:'cong-dien-5',round:'Vòng 5',name:'Công Diễn 5',
+   sub:'Chủ đề sắp công bố',date:'2026-08-15'},
+  {id:'chung-ket',round:'Đêm cuối',name:'Chung Kết',
+   sub:'Gia tộc toàn năng',date:'2026-08-22'}
+];
+// derive live status from the calendar: aired -> done, airing today -> live, else soon
+function showStatus(s){
+  if(s.status)return s.status;                     // explicit override wins
+  if(!s.date)return'soon';
+  const today=new Date().toISOString().slice(0,10);
+  if(s.date<today)return'done';
+  if(s.date===today)return'live';
+  return'soon';
+}
+const STATUS_LABEL={done:'Đã phát sóng',live:'Tối nay',soon:'Sắp tới'};
+const getShow=id=>SHOWS.find(s=>s.id===id);
+// pull an optional remote override so data can be refreshed without touching HTML;
+// merges by id, keeps order, then re-fires so any rendered view repaints
+function refreshShows(){
+  return fetch('assets/shows.json',{cache:'no-store'})
+    .then(r=>r.ok?r.json():Promise.reject(r.status))
+    .then(list=>{
+      if(!Array.isArray(list))return false;
+      list.forEach(u=>{
+        if(!u||!u.id)return;
+        const cur=getShow(u.id);
+        if(cur)Object.assign(cur,u);else SHOWS.push(u);
+      });
+      document.dispatchEvent(new CustomEvent('shows:updated',{detail:SHOWS}));
+      return true;
+    })
+    .catch(()=>false);                              // offline / no file: silent, keep built-ins
+}
+
 const IKEY='atvncg26-cd1-individual';
 let indiv={};
 try{indiv=JSON.parse(localStorage.getItem(IKEY))||{}}catch{}
@@ -72,4 +123,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.chip[data-house] b').forEach(b=>{
     b.insertAdjacentHTML('afterbegin',houseBadge(b.closest('.chip').dataset.house,'chip-badge'));
   });
+  // kick off an automatic data refresh on every page that includes data.js
+  refreshShows();
 });

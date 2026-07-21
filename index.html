@@ -46,50 +46,7 @@
 <section class="board rv" id="journey">
   <span class="wm">ATVNCG2026</span>
   <div class="board-title"><span class="plaque"><i><span class="t">Toàn Bộ Hành Trình</span></i></span></div>
-  <div class="tl-grid">
-    <a class="tl-card rv d1" href="cong-dien-hoi-ngo.html">
-      <span class="tl-tag done">Đã phát sóng</span>
-      <span class="tl-num">Vòng mở màn</span>
-      <span class="tl-name">Công Diễn Hội Ngộ</span>
-      <span class="tl-sub">Ngày nảy, ngày nay · Tập 1–2 · 27.06 &amp; 04.07</span>
-    </a>
-    <a class="tl-card rv d1" href="cong-dien-1.html">
-      <span class="tl-tag live">Tối nay</span>
-      <span class="tl-num">Vòng 1</span>
-      <span class="tl-name">Người Đàn Ông Trên Lưng Ngựa</span>
-      <span class="tl-sub">Công diễn 1 · Từ tập 3 · 18.07</span>
-    </a>
-    <a class="tl-card off rv d2" href="cong-dien-2.html">
-      <span class="tl-tag soon">Sắp tới</span>
-      <span class="tl-num">Vòng 2</span>
-      <span class="tl-name">Công Diễn 2</span>
-      <span class="tl-sub">Chủ đề sắp công bố</span>
-    </a>
-    <a class="tl-card off rv d2" href="cong-dien-3.html">
-      <span class="tl-tag soon">Sắp tới</span>
-      <span class="tl-num">Vòng 3</span>
-      <span class="tl-name">Công Diễn 3</span>
-      <span class="tl-sub">Chủ đề sắp công bố</span>
-    </a>
-    <a class="tl-card off rv d3" href="cong-dien-4.html">
-      <span class="tl-tag soon">Sắp tới</span>
-      <span class="tl-num">Vòng 4</span>
-      <span class="tl-name">Công Diễn 4</span>
-      <span class="tl-sub">Chủ đề sắp công bố</span>
-    </a>
-    <a class="tl-card off rv d3" href="cong-dien-5.html">
-      <span class="tl-tag soon">Sắp tới</span>
-      <span class="tl-num">Vòng 5</span>
-      <span class="tl-name">Công Diễn 5</span>
-      <span class="tl-sub">Chủ đề sắp công bố</span>
-    </a>
-    <a class="tl-card off rv d3" href="chung-ket.html">
-      <span class="tl-tag soon">Sắp tới</span>
-      <span class="tl-num">Đêm cuối</span>
-      <span class="tl-name">Chung Kết</span>
-      <span class="tl-sub">Gia tộc toàn năng</span>
-    </a>
-  </div>
+  <div class="tl-grid" id="tlGrid"></div>
 </section>
 
 <!-- ================= 8 NHÀ ================= -->
@@ -127,6 +84,23 @@
 
 <script src="assets/data.js"></script>
 <script>
+// ===== timeline rendered from SHOWS, repainting whenever data auto-updates =====
+function renderTimeline(){
+  const grid=document.getElementById('tlGrid');
+  grid.innerHTML=SHOWS.map((s,i)=>{
+    const st=showStatus(s);
+    const d=Math.min(3,Math.floor(i/2)+1);
+    return `<a class="tl-card${st==='soon'?' off':''} rv d${d}" href="${s.id}.html">
+      <span class="tl-tag ${st}">${STATUS_LABEL[st]}</span>
+      <span class="tl-num">${s.round}</span>
+      <span class="tl-name">${s.name}</span>
+      <span class="tl-sub">${s.sub}</span>
+    </a>`;
+  }).join('');
+  grid.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+document.addEventListener('shows:updated',renderTimeline);
+
 // flat individual ranking across all houses, official scores + any local edits
 const rows=[];
 Object.entries(ROSTER).forEach(([hid,ms])=>{
@@ -146,6 +120,7 @@ document.getElementById('rankGrid').innerHTML=rows.map((r,i)=>`
 
 // scroll reveal
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+renderTimeline();                       // first paint from built-in SHOWS (refreshShows() repaints on data update)
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>

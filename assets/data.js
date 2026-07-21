@@ -67,7 +67,15 @@ const SHOWS=[
   {id:'cong-dien-hoi-ngo',round:'Vòng mở màn',name:'Công Diễn Hội Ngộ',
    sub:'Ngày nảy, ngày nay · Tập 1–2 · 27.06 & 04.07',date:'2026-07-04'},
   {id:'cong-dien-1',round:'Vòng 1',name:'Người Đàn Ông Trên Lưng Ngựa',
-   sub:'Công diễn 1 · Từ tập 3 · 18.07',date:'2026-07-18'},
+   sub:'Công diễn 1 · Từ tập 3 · 18.07',date:'2026-07-18',
+   // official Công diễn 1 result: bracket is confirmed; provisional điểm hoả lực
+   // per house go in `scores` once published (house-slug -> number) — the page
+   // pre-fills both from here and repaints when shows.json refreshes them
+   results:{
+     bracket:{'bach-1':'my-nam','bach-2':'ngoai-o','bach-3':'cui-lua','bach-4':'lam-manh',
+              'hac-1':'vinh-quy-bai-to','hac-2':'dien-anh','hac-3':'hoa-lua','hac-4':'soan-nhac'},
+     scores:{}
+   }},
   {id:'cong-dien-2',round:'Vòng 2',name:'Công Diễn 2',
    sub:'Chủ đề sắp công bố',date:'2026-07-25'},
   {id:'cong-dien-3',round:'Vòng 3',name:'Công Diễn 3',
